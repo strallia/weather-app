@@ -2,5 +2,25 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* outline: 1px solid red; */
+  font-family: sans-serif;
+  outline: 1px solid red;
+}
+
+body {
+  height: 100vh;
+
+  display: grid;
+  grid-template-rows: min-content min-content 1fr auto;
+  text-align: center;
+}
+
+.menu-container {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 20px;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
 }
