@@ -1,0 +1,6 @@
+# Ignore webpack builds:
+**/dist
+
+# Ignore config files:
+webpack.config.js
+.eslintrc.json
