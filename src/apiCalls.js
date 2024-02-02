@@ -4,9 +4,15 @@ const baseURL = 'https://www.weatherapi.com/docs/#';
 const currentWeatherUrl = `http://api.weatherapi.com/v1/current.json?key=${key}&q=`;
 const forecastURL = `http://api.weatherapi.com/v1/forecast.json?key=${key}&q=`;
 
+// Set city
+let city;
+
+const setCity = (string) => {
+  city = string;
+};
+
 // Current Weather
 const fetchCurrentWeather = async () => {
-  const city = 'sacramento';
   try {
     const response = await fetch(currentWeatherUrl + city, { mode: 'cors' });
     const data = await response.json();
@@ -23,10 +29,15 @@ const processData = async (data) => {
     is_day: isDay,
     condition: { text: condition },
   } = data.current;
+  const { name: cityName } = data.location;
 
-  return { tempC, tempF, isDay, condition };
+  return { tempC, tempF, isDay, condition, cityName };
 };
 
-fetchCurrentWeather()
-  .then((response) => processData(response))
-  .then((data) => console.log(data));
+const logData = () => {
+  fetchCurrentWeather()
+    .then((response) => processData(response))
+    .then((data) => console.log(data));
+};
+
+export { setCity, logData };
