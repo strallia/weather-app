@@ -9,17 +9,24 @@ const fetchCurrentWeather = async () => {
   const city = 'sacramento';
   try {
     const response = await fetch(currentWeatherUrl + city, { mode: 'cors' });
-    return response;
+    const data = await response.json();
+    return data;
   } catch (e) {
     console.log(e);
   }
 };
 
-const getCurrentWeatherData = async (fetchResponse) => {
-  const data = await fetchResponse.json();
-  return data;
+const processData = async (data) => {
+  const {
+    temp_c: tempC,
+    temp_f: tempF,
+    is_day: isDay,
+    condition: { text: condition },
+  } = data.current;
+
+  return { tempC, tempF, isDay, condition };
 };
 
 fetchCurrentWeather()
-  .then((response) => getCurrentWeatherData(response))
+  .then((response) => processData(response))
   .then((data) => console.log(data));
