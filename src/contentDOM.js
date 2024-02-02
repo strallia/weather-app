@@ -3,13 +3,9 @@ import { appendChildren } from './helpersDOM';
 
 const container = document.querySelector('.content-container');
 
-const displayContent = async () => {
-  const data = await returnData();
-  const { tempF, feelsLikeF } = data;
-  container.textContent = `${tempF}°F, FEELS: ${feelsLikeF}°F`;
-};
+let dayData;
 
-const generateDayLayout = () => {
+const generateDayFrame = () => {
   const dayFrame = document.createElement('div');
 
   const titleDiv = document.createElement('div');
@@ -34,6 +30,8 @@ const generateDayLayout = () => {
   tempDiv.classList.add('temp');
   detailsDiv.classList.add('details');
 
+  dayFrame.setAttribute('data-id', 'today');
+
   appendChildren(titleDiv, [dayPara, conditionPara]);
   appendChildren(imgDiv, [img]);
   appendChildren(tempDiv, [tempPara, feelsPara]);
@@ -44,4 +42,33 @@ const generateDayLayout = () => {
   appendChildren(container, [dayFrame]);
 };
 
-export { displayContent };
+const generateDayContent = () => {
+  const frame = document.querySelector('.day-frame[data-id=today]');
+  const dayPara = frame.querySelector('.title > h3');
+  const conditionPara = frame.querySelector('.title > p');
+  const tempPara = frame.querySelector('.temp > p:first-of-type');
+  const feelsPara = frame.querySelector('.temp > p:last-of-type');
+  const precipPara = frame.querySelector('.details > p:first-of-type');
+  const windPara = frame.querySelector('.details > p:nth-child(2)');
+  const humidityPara = frame.querySelector('.details > p:last-of-type');
+
+  dayPara.textContent = dayData.cityName;
+  conditionPara.textContent = dayData.condition;
+  tempPara.textContent = `${dayData.tempF}°F`;
+  feelsPara.textContent = `FEELS: ${dayData.feelsLikeF}°F`;
+  precipPara.textContent = `precip.: ${dayData.precipIN} in.`;
+  windPara.textContent = `wind: ${dayData.windMPH} mph`;
+  humidityPara.textContent = `humidity: ${dayData.humidity}%`;
+};
+
+const runContentGenerationSequence = () => {
+  generateDayFrame();
+  generateDayContent();
+};
+
+const setDayData = async () => {
+  dayData = await returnData();
+  runContentGenerationSequence();
+};
+
+export { setDayData };
