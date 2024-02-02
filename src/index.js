@@ -1,3 +1,3 @@
 import './styles.css';
-import './apiCalls';
+import './data';
 import './formDOM';

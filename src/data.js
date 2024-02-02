@@ -11,6 +11,8 @@ const setCity = (string) => {
   city = string;
 };
 
+const getCity = () => city;
+
 // Current Weather
 const fetchCurrentWeather = async () => {
   try {
@@ -59,4 +61,4 @@ const returnData = async () => {
   return data;
 };
 
-export { setCity, returnData };
+export { setCity, getCity, returnData };

@@ -1,4 +1,4 @@
-import { returnData } from './apiCalls';
+import { returnData } from './data';
 
 const container = document.querySelector('.content-container');
 
