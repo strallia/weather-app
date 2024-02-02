@@ -24,14 +24,33 @@ const fetchCurrentWeather = async () => {
 
 const processData = async (data) => {
   const {
+    condition: { text: condition },
     temp_c: tempC,
     temp_f: tempF,
-    is_day: isDay,
-    condition: { text: condition },
+    feelslike_c: feelsLikeC,
+    feelslike_f: feelsLikeF,
+    wind_kph: windKPH,
+    wind_mph: windMPH,
+    humidity,
+    precip_mm: precipMM,
+    precip_in: precipIN,
   } = data.current;
+
   const { name: cityName } = data.location;
 
-  return { tempC, tempF, isDay, condition, cityName };
+  return {
+    tempC,
+    tempF,
+    condition,
+    feelsLikeC,
+    feelsLikeF,
+    windKPH,
+    windMPH,
+    humidity,
+    precipMM,
+    precipIN,
+    cityName,
+  };
 };
 
 const logData = () => {
