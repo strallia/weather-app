@@ -53,10 +53,10 @@ const processData = async (data) => {
   };
 };
 
-const logData = () => {
-  fetchCurrentWeather()
-    .then((response) => processData(response))
-    .then((data) => console.log(data));
+const returnData = async () => {
+  const response = await fetchCurrentWeather();
+  const data = processData(response);
+  return data;
 };
 
-export { setCity, logData };
+export { setCity, returnData };

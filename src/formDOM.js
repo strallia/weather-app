@@ -1,4 +1,5 @@
-import { setCity, logData } from './apiCalls';
+import { setCity } from './apiCalls';
+import { displayContent } from './contentDOM';
 
 const input = document.querySelector('input');
 const searchBtn = document.querySelector('button');
@@ -6,5 +7,5 @@ const searchBtn = document.querySelector('button');
 searchBtn.addEventListener('click', (event) => {
   event.preventDefault();
   setCity(input.value);
-  logData();
+  displayContent();
 });
