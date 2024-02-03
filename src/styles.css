@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Rufina:wght@700&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -15,7 +17,6 @@ body {
   display: grid;
   grid-template-columns: minmax(min-content, 1100px);
   justify-content: center;
-  overflow: scroll;
 }
 
 .page-container {
@@ -29,7 +30,14 @@ body {
 }
 
 .title-container {
-  font-size: 4rem;
+  font-size: 5rem;
+  font-family: 'Rufina', serif;
+  letter-spacing: 0.5rem;
+}
+
+.title-container,
+footer > * {
+  font-family: 'Rufina', serif;
 }
 
 .menu-container {
@@ -166,5 +174,6 @@ footer {
 }
 
 .credits a {
+  font-family: inherit;
   color: inherit;
 }
