@@ -109,10 +109,6 @@ button:hover {
   gap: 3px;
 }
 
-.temp p:last-child::before {
-  content: 'FEELS: ';
-}
-
 .details p:first-child::before {
   content: 'precip.: ';
 }

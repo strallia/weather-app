@@ -4,9 +4,9 @@ import Sun from './images/sun.png';
 
 const container = document.querySelector('.content-container');
 
-let dayData;
+let currentDataArr;
 
-const generateDayFrame = () => {
+const generateDayFrame = (obj) => {
   const dayFrame = document.createElement('div');
 
   const titleDiv = document.createElement('div');
@@ -17,8 +17,8 @@ const generateDayFrame = () => {
   const img = document.createElement('img');
 
   const tempDiv = document.createElement('div');
-  const tempPara = document.createElement('p');
-  const feelsPara = document.createElement('p');
+  const maxTempPara = document.createElement('p');
+  const minTempPara = document.createElement('p');
 
   const detailsDiv = document.createElement('div');
   const precipPara = document.createElement('p');
@@ -31,11 +31,11 @@ const generateDayFrame = () => {
   tempDiv.classList.add('temp');
   detailsDiv.classList.add('details');
 
-  dayFrame.setAttribute('data-id', 'today');
+  dayFrame.setAttribute('data-id', obj.date);
 
   appendChildren(titleDiv, [dayPara, conditionPara]);
   appendChildren(imgDiv, [img]);
-  appendChildren(tempDiv, [tempPara, feelsPara]);
+  appendChildren(tempDiv, [maxTempPara, minTempPara]);
   appendChildren(detailsDiv, [precipPara, windPara, humidityPara]);
 
   appendChildren(dayFrame, [titleDiv, imgDiv, tempDiv, detailsDiv]);
@@ -43,36 +43,36 @@ const generateDayFrame = () => {
   appendChildren(container, [dayFrame]);
 };
 
-const generateDayContent = () => {
-  const frame = document.querySelector('.day-frame[data-id=today]');
+const generateDayContent = (obj) => {
+  const frame = document.querySelector(`.day-frame[data-id="${obj.date}"]`);
   const dayPara = frame.querySelector('.title > h3');
   const conditionPara = frame.querySelector('.title > p');
   const img = frame.querySelector('img');
-  const tempPara = frame.querySelector('.temp > p:first-of-type');
-  const feelsPara = frame.querySelector('.temp > p:last-of-type');
+  const maxTempPara = frame.querySelector('.temp > p:first-child');
+  const minTempPara = frame.querySelector('.temp > p:last-child');
   const precipPara = frame.querySelector('.details > p:first-of-type');
   const windPara = frame.querySelector('.details > p:nth-child(2)');
   const humidityPara = frame.querySelector('.details > p:last-of-type');
 
-  dayPara.textContent = 'TODAY';
-  conditionPara.textContent = dayData.condition;
-  tempPara.textContent = `${dayData.tempF}°`;
-  feelsPara.textContent = `${dayData.feelsLikeF}°`;
-  precipPara.textContent = `${dayData.precipIN} in.`;
-  windPara.textContent = `${dayData.windMPH} mph`;
-  humidityPara.textContent = `${dayData.humidity}%`;
+  dayPara.textContent = obj.date;
+  conditionPara.textContent = obj.condition;
+  maxTempPara.textContent = `${obj.maxTempF}°`;
+  minTempPara.textContent = `${obj.minTempF}°`;
+  precipPara.textContent = `${obj.totalPrecipIN} in.`;
+  windPara.textContent = `${obj.maxWindMPH} mph`;
+  humidityPara.textContent = `${obj.avgHumidity}%`;
 
-  img.src = Sun;
+  img.src = `https:${obj.imgURL}`;
 };
 
-const runContentGenerationSequence = () => {
-  generateDayFrame();
-  generateDayContent();
+const runContentGenerationSequence = (obj) => {
+  generateDayFrame(obj);
+  generateDayContent(obj);
 };
 
-const setDayData = async () => {
-  dayData = await returnData();
-  runContentGenerationSequence();
+const setCurrentDataArr = async () => {
+  currentDataArr = await returnData();
+  currentDataArr.forEach((obj) => runContentGenerationSequence(obj));
 };
 
-export { setDayData };
+export { setCurrentDataArr };
