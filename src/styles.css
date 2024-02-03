@@ -30,6 +30,12 @@ body {
   align-content: center;
 }
 
+.title-container,
+.content-container,
+footer {
+  user-select: none;
+}
+
 .title-container {
   font-size: 5rem;
   font-family: 'Rufina', serif;
