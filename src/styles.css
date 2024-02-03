@@ -26,18 +26,49 @@ body {
 .menu-container {
   border-top: 5px solid black;
   border-bottom: 2px solid black;
-  padding: 5px 0;
 
   display: grid;
   grid-template-columns: auto 1fr auto;
-  gap: 20px;
+  gap: 30px;
   justify-items: center;
+  align-items: center;
 }
 
 .menu-container,
 footer {
   width: 100%;
   justify-self: space-between;
+}
+
+form {
+  width: 100%;
+
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+input {
+  border: none;
+  background-color: lightgray;
+  padding: 5px 10px;
+
+  flex: 1;
+}
+
+button {
+  padding: 2px 3px;
+  background-color: transparent;
+  border: none;
+}
+
+button::before {
+  content: url('./images/search.png');
+  zoom: 3%;
+}
+
+button:hover {
+  cursor: pointer;
 }
 
 .content-container {
