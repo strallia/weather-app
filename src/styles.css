@@ -8,15 +8,23 @@
 
 :root {
   font-size: 16px;
+  background-color: #f5f2e8;
 }
 
 body {
+  display: grid;
+  grid-template-columns: minmax(min-content, 1100px);
+  justify-content: center;
+}
+
+.page-container {
   height: 100vh;
   padding: 0 10px;
 
   display: grid;
-  grid-template-rows: min-content min-content 1fr auto;
+  grid-template-rows: repeat(4, min-content);
   justify-items: center;
+  align-content: center;
 }
 
 .title-container {
@@ -72,15 +80,26 @@ button:hover {
 }
 
 .content-container {
+  width: 100%;
+  padding: 20px 0;
+
   display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   align-items: center;
+  justify-content: center;
 }
 
 .day-frame {
-  border: 1px solid black;
+  border-right: 1px solid black;
+  padding: 30px;
+  text-align: center;
 
   display: grid;
   row-gap: 15px;
+}
+
+.day-frame:first-of-type {
+  border-left: 1px solid black;
 }
 
 .title h3 {
@@ -97,7 +116,8 @@ button:hover {
 }
 
 .temp p:last-child {
-  font-weight: bold;
+  font-weight: normal;
+  font-size: 1.5rem;
 }
 
 .day-frame ::before {
