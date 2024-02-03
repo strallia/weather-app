@@ -31,6 +31,11 @@ footer {
   justify-self: space-between;
 }
 
+.content-container {
+  display: grid;
+  align-items: center;
+}
+
 .day-frame {
   border: 1px solid black;
 
