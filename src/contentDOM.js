@@ -1,5 +1,6 @@
 import { returnData } from './data';
 import { appendChildren } from './helpersDOM';
+import Sun from './images/sun.png';
 
 const container = document.querySelector('.content-container');
 
@@ -46,6 +47,7 @@ const generateDayContent = () => {
   const frame = document.querySelector('.day-frame[data-id=today]');
   const dayPara = frame.querySelector('.title > h3');
   const conditionPara = frame.querySelector('.title > p');
+  const img = frame.querySelector('img');
   const tempPara = frame.querySelector('.temp > p:first-of-type');
   const feelsPara = frame.querySelector('.temp > p:last-of-type');
   const precipPara = frame.querySelector('.details > p:first-of-type');
@@ -59,6 +61,8 @@ const generateDayContent = () => {
   precipPara.textContent = `${dayData.precipIN} in.`;
   windPara.textContent = `${dayData.windMPH} mph`;
   humidityPara.textContent = `${dayData.humidity}%`;
+
+  img.src = Sun;
 };
 
 const runContentGenerationSequence = () => {

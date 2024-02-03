@@ -80,6 +80,15 @@ footer {
   content: 'humidity: ';
 }
 
+.img {
+  display: flex;
+  justify-content: center;
+}
+
+img {
+  width: 100px;
+}
+
 footer {
   display: flex;
   justify-content: space-between;
