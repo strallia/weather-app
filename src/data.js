@@ -1,8 +1,7 @@
 import { key } from './key';
 
-const baseURL = 'https://www.weatherapi.com/docs/#';
 const currentWeatherUrl = `http://api.weatherapi.com/v1/current.json?key=${key}&q=`;
-const forecastURL = `http://api.weatherapi.com/v1/forecast.json?key=${key}&q=`;
+const forecastURL = `http://api.weatherapi.com/v1/forecast.json?key=${key}&days=4&q=`;
 
 // Set city
 let city = 'davis';
@@ -60,5 +59,59 @@ const returnData = async () => {
   const data = processData(response);
   return data;
 };
+
+// Forecast Weather
+const fetchForecastWeather = async () => {
+  try {
+    const response = await fetch(forecastURL + city, { mode: 'cors' });
+    const data = await response.json();
+    console.log(data);
+    return data;
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+const XprocessData = async (data) => {
+  const forecast = data.forecast.forecastday;
+  const dataArr = [];
+
+  forecast.forEach((dayObj) => {
+    const dayData = dayObj.day;
+    const {
+      condition: { text: condition },
+      condition: { icon: imgURL },
+      maxtemp_c: maxTempC,
+      maxtemp_f: maxTempF,
+      mintemp_c: minTempC,
+      mintemp_f: minTempF,
+      totalprecip_mm: totalPrecipMM,
+      totalprecip_in: totalPrecipIN,
+      maxwind_kph: maxWindKPH,
+      maxwind_mph: maxWindMPH,
+      avghumidity: avgHumidity,
+    } = dayData;
+    const renamedObjProperties = {
+      condition,
+      imgURL,
+      maxTempC,
+      maxTempF,
+      minTempC,
+      minTempF,
+      totalPrecipMM,
+      totalPrecipIN,
+      maxWindKPH,
+      maxWindMPH,
+      avgHumidity,
+    };
+    dataArr.push(renamedObjProperties);
+  });
+  console.log(dataArr);
+
+  // need access to day of the week
+
+  return {};
+};
+fetchForecastWeather().then((res) => XprocessData(res));
 
 export { setCity, getCity, returnData };
