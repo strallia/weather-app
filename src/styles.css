@@ -39,7 +39,6 @@ body {
   display: grid;
   grid-template-rows: repeat(5, min-content);
   justify-items: center;
-  align-content: center;
 }
 
 .title-container,
@@ -59,7 +58,7 @@ footer * {
 }
 
 .menu-container {
-  padding-bottom: 5px;
+  padding-bottom: 10px;
 
   display: grid;
   grid-template-columns: auto minmax(200px, 30%) auto;
@@ -167,6 +166,7 @@ button:hover {
 
   display: flex;
   justify-content: space-between;
+  gap: 50px;
 }
 
 .date-container * {
@@ -188,7 +188,7 @@ button:hover {
   border-right: 1px solid var(--contrast-color);
 
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   align-items: center;
   justify-content: center;
   gap: 1px;
