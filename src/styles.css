@@ -12,13 +12,22 @@
 
 body {
   height: 100vh;
+  padding: 0 10px;
 
   display: grid;
   grid-template-rows: min-content min-content 1fr auto;
   justify-items: center;
 }
 
+.title-container {
+  font-size: 4rem;
+}
+
 .menu-container {
+  border-top: 5px solid black;
+  border-bottom: 2px solid black;
+  padding: 5px 0;
+
   display: grid;
   grid-template-columns: auto 1fr auto;
   gap: 20px;
