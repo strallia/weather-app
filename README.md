@@ -1,25 +1,14 @@
 # Project
 
+[Live Demo](https://strallia.github.io/weather-app/)
+
 # Purpose
 
-# Template Features
+Practice making API calls, processing data, and using promises and async/await to build a weather forecast app.
 
-- npm & configs
-- Webpack & configs
-- ESLint
-- Prettier
-- Babel
+# Features
 
-# Customize Template
-
-## package.json
-
-- "name" property
-
-## wepack.config.js
-
-- favicon path
-
-## .browserlistrc
-
-- configure which browsers babel should transpile for
+- Search for weather at a particular city
+- See 3-day forecast
+- Toggle light/dark theme
+- Toggle metric/imperial units
