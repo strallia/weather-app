@@ -28,8 +28,8 @@ const months = [
 const dateSpan = document.querySelector('.date');
 
 const displayTodaysDate = () => {
-  const dayOfTheWeek = days[date.getDay()];
-  const month = months[date.getMonth()];
+  const dayOfTheWeek = days[date.getDay()].toUpperCase();
+  const month = months[date.getMonth()].toUpperCase();
   const dayOfTheMonth = date.getDate();
   const year = date.getFullYear();
 

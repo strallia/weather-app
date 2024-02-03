@@ -107,7 +107,8 @@ button:hover {
 }
 
 .temp,
-.details {
+.details,
+.date {
   font-weight: bold;
 }
 
@@ -151,6 +152,14 @@ img {
 }
 
 footer {
+  border-top: 2px solid black;
+  padding-top: 5px;
+  font-size: 0.9rem;
+
   display: flex;
   justify-content: space-between;
+}
+
+.credits a {
+  color: inherit;
 }
