@@ -231,7 +231,7 @@ button:hover {
 }
 
 .details p:first-child::before {
-  content: 'precip.: ';
+  content: 'rain: ';
 }
 
 .details p:nth-child(2)::before {
