@@ -17,11 +17,13 @@
 :root.light {
   --background-color: rgb(245, 242, 232);
   --contrast-color: rgb(26, 28, 26);
+  --search-background-color: rgba(26, 28, 26, 0.1);
 }
 
 :root.dark {
   --background-color: rgb(26, 28, 26);
   --contrast-color: rgb(245, 242, 232);
+  --search-background-color: rgba(245, 242, 232, 0.1);
 }
 
 body {
@@ -127,7 +129,7 @@ input[type='search'] {
   border: none;
   background-color: lightgray;
   padding: 7px 15px;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: var(--search-background-color);
   border-radius: 20px;
 
   flex: 1;
