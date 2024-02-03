@@ -15,6 +15,7 @@ body {
   display: grid;
   grid-template-columns: minmax(min-content, 1100px);
   justify-content: center;
+  overflow: scroll;
 }
 
 .page-container {
@@ -79,27 +80,31 @@ button:hover {
   cursor: pointer;
 }
 
+.content-background {
+  background-color: black;
+  width: 100%;
+  margin: 20px 0;
+}
+
 .content-container {
   width: 100%;
-  padding: 20px 0;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
 
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
   align-items: center;
   justify-content: center;
+  gap: 1px;
 }
 
 .day-frame {
-  border-right: 1px solid black;
+  background-color: #f5f2e8;
   padding: 30px;
   text-align: center;
 
   display: grid;
   row-gap: 15px;
-}
-
-.day-frame:first-of-type {
-  border-left: 1px solid black;
 }
 
 .title h3 {
