@@ -6,18 +6,78 @@
   /* outline: 1px solid red; */
 }
 
+:root {
+  font-size: 16px;
+}
+
 body {
   height: 100vh;
 
   display: grid;
   grid-template-rows: min-content min-content 1fr auto;
-  text-align: center;
+  justify-items: center;
 }
 
 .menu-container {
   display: grid;
   grid-template-columns: auto 1fr auto;
   gap: 20px;
+  justify-items: center;
+}
+
+.menu-container,
+footer {
+  width: 100%;
+  justify-self: space-between;
+}
+
+.day-frame {
+  border: 1px solid black;
+
+  display: grid;
+  row-gap: 15px;
+}
+
+.title h3 {
+  font-size: 1.5rem;
+}
+
+.temp,
+.details {
+  font-weight: bold;
+}
+
+.temp p:first-child {
+  font-size: 3rem;
+}
+
+.temp p:last-child {
+  font-weight: bold;
+}
+
+.day-frame ::before {
+  font-weight: normal;
+}
+
+.details {
+  display: grid;
+  gap: 3px;
+}
+
+.temp p:last-child::before {
+  content: 'FEELS: ';
+}
+
+.details p:first-child::before {
+  content: 'precip.: ';
+}
+
+.details p:nth-child(2)::before {
+  content: 'wind: ';
+}
+
+.details p:last-child::before {
+  content: 'humidity: ';
 }
 
 footer {

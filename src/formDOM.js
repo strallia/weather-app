@@ -11,3 +11,7 @@ searchBtn.addEventListener('click', (event) => {
   setDayData();
   displayCity();
 });
+
+// TODO: remove these lines after testing
+setDayData();
+displayCity();

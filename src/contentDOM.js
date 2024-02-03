@@ -52,13 +52,13 @@ const generateDayContent = () => {
   const windPara = frame.querySelector('.details > p:nth-child(2)');
   const humidityPara = frame.querySelector('.details > p:last-of-type');
 
-  dayPara.textContent = dayData.cityName;
+  dayPara.textContent = 'TODAY';
   conditionPara.textContent = dayData.condition;
-  tempPara.textContent = `${dayData.tempF}°F`;
-  feelsPara.textContent = `FEELS: ${dayData.feelsLikeF}°F`;
-  precipPara.textContent = `precip.: ${dayData.precipIN} in.`;
-  windPara.textContent = `wind: ${dayData.windMPH} mph`;
-  humidityPara.textContent = `humidity: ${dayData.humidity}%`;
+  tempPara.textContent = `${dayData.tempF}°`;
+  feelsPara.textContent = `${dayData.feelsLikeF}°`;
+  precipPara.textContent = `${dayData.precipIN} in.`;
+  windPara.textContent = `${dayData.windMPH} mph`;
+  humidityPara.textContent = `${dayData.humidity}%`;
 };
 
 const runContentGenerationSequence = () => {

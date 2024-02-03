@@ -5,7 +5,7 @@ const currentWeatherUrl = `http://api.weatherapi.com/v1/current.json?key=${key}&
 const forecastURL = `http://api.weatherapi.com/v1/forecast.json?key=${key}&q=`;
 
 // Set city
-let city;
+let city = 'davis';
 
 const setCity = (string) => {
   city = string;
