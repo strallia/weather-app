@@ -55,7 +55,8 @@ footer {
 }
 
 .title-container,
-footer * {
+footer *,
+.unit-toggle * {
   font-family: 'Rufina', serif;
 }
 
@@ -75,13 +76,47 @@ footer {
   justify-self: space-between;
 }
 
+.theme-toggle.switch {
+  width: 57px;
+}
+
+.unit-toggle.switch {
+  width: 140px;
+}
+
+.theme-toggle.slider {
+  width: 22px;
+  background-color: goldenrod;
+}
+
+.unit-toggle.slider {
+  width: 70px;
+}
+
+.metric,
+.imperial {
+  position: absolute;
+  top: 6px;
+  font-size: 0.8rem;
+  color: var(--background-color);
+  user-select: none;
+  cursor: pointer;
+}
+
+.imperial {
+  left: 14px;
+}
+
+.metric {
+  right: 10px;
+}
+
 .switch {
   border: 3px solid var(--contrast-color);
-  width: 57px;
-  height: 33px;
   overflow: hidden;
   position: relative;
   margin: 3px;
+  height: 33px;
 }
 
 .switch,
@@ -99,20 +134,23 @@ input[type='checkbox'] {
 
 .slider {
   background-color: var(--contrast-color);
-  width: 22px;
-  height: 22px;
   position: absolute;
   top: 3px;
   left: 4px;
   transition: 300ms;
   cursor: pointer;
+  height: 22px;
 }
 
 input[type='checkbox']:checked {
-  + .slider {
+  + .theme-toggle.slider {
     transform: translate(23px);
     background-color: transparent;
-    box-shadow: inset -8px 0 0px 0px var(--contrast-color);
+    box-shadow: inset -8px 0 0px 0px rgb(116, 154, 224);
+  }
+  + .unit-toggle.slider {
+    width: 55px;
+    transform: translate(73px);
   }
 }
 

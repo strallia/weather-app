@@ -1,4 +1,4 @@
-const themeToggle = document.querySelector('.theme-toggle');
+const themeToggle = document.querySelector('input.theme-toggle');
 const root = document.querySelector(':root');
 
 const toggleDarkMode = () => {
