@@ -40,6 +40,9 @@ body.full-view {
 
 body.narrow-view {
   grid-template-columns: minmax(min-content, 600px);
+  .title-container {
+    font-size: 50px;
+  }
 }
 
 .page-container {
@@ -61,6 +64,7 @@ footer {
   font-size: 5rem;
   letter-spacing: 0.5rem;
   text-align: center;
+  word-break: break-all;
 }
 
 .title-container,
@@ -86,6 +90,7 @@ footer *,
   grid-template-rows: auto auto;
   column-gap: 30px;
   row-gap: 10px;
+  max-width: 400px;
 
   > .theme-toggle {
     grid-row: 2/3;
@@ -229,6 +234,7 @@ button:hover {
 
   display: flex;
   justify-content: space-between;
+  align-items: center;
   gap: 50px;
 }
 
