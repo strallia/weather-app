@@ -2,21 +2,24 @@ import { key } from './key';
 
 const forecastURL = `http://api.weatherapi.com/v1/forecast.json?key=${key}&days=4&q=`;
 
-// City variable
+// state variables
 let city = 'davis';
-
 const setCity = (string) => {
   city = string;
 };
-
 const getCity = () => city;
+
+let units = 'imperial';
+const setUnits = (string) => {
+  units = string;
+};
+const getUnits = () => units;
 
 // Forecast API calls
 const fetchForecast = async () => {
   try {
     const response = await fetch(forecastURL + city, { mode: 'cors' });
     const data = await response.json();
-    console.log(data);
     return data;
   } catch (e) {
     console.log(e);
@@ -29,39 +32,38 @@ const processData = async (data) => {
 
   forecast.forEach((dayObj) => {
     const dayData = dayObj.day;
+    let sharedData = {};
+    let unitSpecificData = {};
 
+    // gather shared data
     const {
       condition: { text: condition },
       condition: { icon: imgURL },
-      maxtemp_c: maxTempC,
-      maxtemp_f: maxTempF,
-      mintemp_c: minTempC,
-      mintemp_f: minTempF,
-      totalprecip_mm: totalPrecipMM,
-      totalprecip_in: totalPrecipIN,
-      maxwind_kph: maxWindKPH,
-      maxwind_mph: maxWindMPH,
       avghumidity: avgHumidity,
     } = dayData;
-
     const { date } = dayObj;
+    sharedData = { condition, imgURL, avgHumidity, date };
 
-    const renamedObjProperties = {
-      date,
-      condition,
-      imgURL,
-      maxTempC,
-      maxTempF,
-      minTempC,
-      minTempF,
-      totalPrecipMM,
-      totalPrecipIN,
-      maxWindKPH,
-      maxWindMPH,
-      avgHumidity,
-    };
+    // gather data filtered by units
+    if (units === 'imperial') {
+      const {
+        maxtemp_f: maxTemp,
+        mintemp_f: minTemp,
+        totalprecip_in: totalPrecip,
+        maxwind_mph: maxWind,
+      } = dayData;
+      unitSpecificData = { maxTemp, minTemp, totalPrecip, maxWind };
+    } else if (units === 'metric') {
+      const {
+        maxtemp_c: maxTemp,
+        mintemp_c: minTemp,
+        totalprecip_mm: totalPrecip,
+        maxwind_kph: maxWind,
+      } = dayData;
+      unitSpecificData = { maxTemp, minTemp, totalPrecip, maxWind };
+    }
 
-    dataArr.push(renamedObjProperties);
+    dataArr.push({ ...sharedData, ...unitSpecificData });
   });
   console.log(dataArr);
   return dataArr;
@@ -73,4 +75,4 @@ const returnData = async () => {
   return data;
 };
 
-export { setCity, getCity, returnData };
+export { setCity, getCity, getUnits, setUnits, returnData };

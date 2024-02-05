@@ -1,6 +1,5 @@
-import { returnData } from './data';
+import { getUnits, returnData } from './data';
 import { appendChildren } from './helpersDOM';
-import Sun from './images/sun.png';
 
 const container = document.querySelector('.content-container');
 
@@ -54,12 +53,17 @@ const generateDayContent = (obj) => {
   const windPara = frame.querySelector('.details > p:nth-child(2)');
   const humidityPara = frame.querySelector('.details > p:last-of-type');
 
+  const unitsType = getUnits();
+  const tempUnit = unitsType === 'imperial' ? 'F' : 'C';
+  const precipUnit = unitsType === 'imperial' ? 'in.' : 'mm';
+  const windUnit = unitsType === 'imperial' ? 'mph' : 'kph';
+
   dayPara.textContent = obj.date;
   conditionPara.textContent = obj.condition;
-  maxTempPara.textContent = `${obj.maxTempF}°`;
-  minTempPara.textContent = `${obj.minTempF}°`;
-  precipPara.textContent = `${obj.totalPrecipIN} in.`;
-  windPara.textContent = `${obj.maxWindMPH} mph`;
+  maxTempPara.textContent = `${obj.maxTemp}°${tempUnit}`;
+  minTempPara.textContent = `${obj.minTemp}°${tempUnit}`;
+  precipPara.textContent = `${obj.totalPrecip} ${precipUnit}`;
+  windPara.textContent = `${obj.maxWind} ${windUnit}`;
   humidityPara.textContent = `${obj.avgHumidity}%`;
 
   img.src = `https:${obj.imgURL}`;
@@ -70,9 +74,9 @@ const runContentGenerationSequence = (obj) => {
   generateDayContent(obj);
 };
 
-const setCurrentDataArr = async () => {
+const displayWeatherContent = async () => {
   currentDataArr = await returnData();
   currentDataArr.forEach((obj) => runContentGenerationSequence(obj));
 };
 
-export { setCurrentDataArr };
+export { displayWeatherContent };

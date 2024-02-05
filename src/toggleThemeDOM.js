@@ -1,7 +1,7 @@
 const themeToggle = document.querySelector('input.theme-toggle');
 const root = document.querySelector(':root');
 
-const toggleDarkMode = () => {
+const toggleTheme = () => {
   if (themeToggle.checked) {
     root.classList.remove('light');
     root.classList.add('dark');
@@ -11,4 +11,4 @@ const toggleDarkMode = () => {
   }
 };
 
-themeToggle.addEventListener('click', toggleDarkMode);
+themeToggle.addEventListener('click', toggleTheme);
