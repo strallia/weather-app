@@ -1,5 +1,5 @@
 import { getUnits, returnData } from './data';
-import { appendChildren } from './helpersDOM';
+import { appendChildren, clearContent } from './helpersDOM';
 
 const container = document.querySelector('.content-container');
 
@@ -75,6 +75,7 @@ const runContentGenerationSequence = (obj) => {
 };
 
 const displayWeatherContent = async () => {
+  clearContent([container]);
   currentDataArr = await returnData();
   currentDataArr.forEach((obj) => runContentGenerationSequence(obj));
 };
