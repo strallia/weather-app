@@ -12,3 +12,4 @@ Practice making API calls, processing data, and using promises and async/await t
 - See 3-day forecast
 - Toggle light/dark theme
 - Toggle metric/imperial units
+- Responsive on desktop and mobile browsers
