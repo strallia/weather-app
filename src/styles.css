@@ -256,6 +256,7 @@ button:hover {
 .content-container.narrow-view {
   grid-template-columns: 1fr;
   grid-template-rows: repeat(auto-fit, min-content);
+  margin: -30px 0;
 
   > .day-frame {
     padding: 20px;
@@ -266,9 +267,18 @@ button:hover {
   background-color: var(--background-color);
   padding: 0 30px;
   text-align: center;
-
   display: grid;
-  row-gap: 15px;
+  gap: 15px;
+}
+
+.day-frame.narrow-view {
+  width: 100%;
+
+  grid-template-columns: repeat(2, minmax(150px, 200px));
+  grid-template-rows: auto auto;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
 }
 
 .title h3 {

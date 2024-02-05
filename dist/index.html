@@ -1,11 +1,122 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title></title>
-<script defer src="main.js"></script></head>
-<body>
-
-</body>
+<!doctype html>
+<html lang="en" class="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+  <link rel="icon" href="sun.png"><script defer src="main.js"></script></head>
+  <body>
+    <div class="page-container">
+      <h1 class="title-container">CITY</h1>
+      <div class="menu-container full-view">
+        <label class="switch theme-toggle">
+          <input type="checkbox" class="theme-toggle" />
+          <span class="slider theme-toggle"></span>
+        </label>
+        <form>
+          <input
+            type="text"
+            id="search"
+            name="search"
+            placeholder="Enter a city"
+          />
+          <button type="submit">
+            <img src="./images/search.png" />
+          </button>
+        </form>
+        <label class="switch unit-toggle">
+          <input type="checkbox" class="unit-toggle" />
+          <span class="slider unit-toggle"></span>
+          <span class="imperial">imperial</span>
+          <span class="metric">metric</span>
+        </label>
+      </div>
+      <div class="date-container">
+        <span class="established">EST. 2024</span>
+        <span class="date">(date)</span>
+        <span class="volume">VOL. XVIII</span>
+      </div>
+      <div class="content-background">
+        <div class="content-container full-view">
+          <div class="day-frame full-view" data-id="0">
+            <div class="title">
+              <h3></h3>
+              <p></p>
+            </div>
+            <div class="img">
+              <img />
+            </div>
+            <div class="temp">
+              <p></p>
+              <p></p>
+            </div>
+            <div class="details">
+              <p></p>
+              <p></p>
+              <p></p>
+            </div>
+          </div>
+          <div class="day-frame full-view" data-id="1">
+            <div class="title">
+              <h3></h3>
+              <p></p>
+            </div>
+            <div class="img">
+              <img />
+            </div>
+            <div class="temp">
+              <p></p>
+              <p></p>
+            </div>
+            <div class="details">
+              <p></p>
+              <p></p>
+              <p></p>
+            </div>
+          </div>
+          <div class="day-frame full-view" data-id="2">
+            <div class="title">
+              <h3></h3>
+              <p></p>
+            </div>
+            <div class="img">
+              <img />
+            </div>
+            <div class="temp">
+              <p></p>
+              <p></p>
+            </div>
+            <div class="details">
+              <p></p>
+              <p></p>
+              <p></p>
+            </div>
+          </div>
+          <div class="day-frame full-view" data-id="3">
+            <div class="title">
+              <h3></h3>
+              <p></p>
+            </div>
+            <div class="img">
+              <img />
+            </div>
+            <div class="temp">
+              <p></p>
+              <p></p>
+            </div>
+            <div class="details">
+              <p></p>
+              <p></p>
+              <p></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer>
+        <span class="credits">
+          created by <a href="https://github.com/strallia">strallia</a>
+        </span>
+      </footer>
+    </div>
+  </body>
 </html>

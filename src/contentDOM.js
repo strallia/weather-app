@@ -1,49 +1,9 @@
 import { getUnits, returnData } from './data';
-import { appendChildren, clearContent } from './helpersDOM';
-
-const container = document.querySelector('.content-container');
 
 let currentDataArr;
 
-const generateDayFrame = (obj) => {
-  const dayFrame = document.createElement('div');
-
-  const titleDiv = document.createElement('div');
-  const dayPara = document.createElement('h3');
-  const conditionPara = document.createElement('p');
-
-  const imgDiv = document.createElement('div');
-  const img = document.createElement('img');
-
-  const tempDiv = document.createElement('div');
-  const maxTempPara = document.createElement('p');
-  const minTempPara = document.createElement('p');
-
-  const detailsDiv = document.createElement('div');
-  const precipPara = document.createElement('p');
-  const windPara = document.createElement('p');
-  const humidityPara = document.createElement('p');
-
-  dayFrame.classList.add('day-frame');
-  titleDiv.classList.add('title');
-  imgDiv.classList.add('img');
-  tempDiv.classList.add('temp');
-  detailsDiv.classList.add('details');
-
-  dayFrame.setAttribute('data-id', obj.date);
-
-  appendChildren(titleDiv, [dayPara, conditionPara]);
-  appendChildren(imgDiv, [img]);
-  appendChildren(tempDiv, [maxTempPara, minTempPara]);
-  appendChildren(detailsDiv, [precipPara, windPara, humidityPara]);
-
-  appendChildren(dayFrame, [titleDiv, imgDiv, tempDiv, detailsDiv]);
-
-  appendChildren(container, [dayFrame]);
-};
-
-const generateDayContent = (obj) => {
-  const frame = document.querySelector(`.day-frame[data-id="${obj.date}"]`);
+const generateDayContent = (obj, index) => {
+  const frame = document.querySelector(`.day-frame[data-id="${index}"]`);
   const dayPara = frame.querySelector('.title > h3');
   const conditionPara = frame.querySelector('.title > p');
   const img = frame.querySelector('img');
@@ -69,15 +29,9 @@ const generateDayContent = (obj) => {
   img.src = `https:${obj.imgURL}`;
 };
 
-const runContentGenerationSequence = (obj) => {
-  generateDayFrame(obj);
-  generateDayContent(obj);
-};
-
 const displayWeatherContent = async () => {
-  clearContent([container]);
   currentDataArr = await returnData();
-  currentDataArr.forEach((obj) => runContentGenerationSequence(obj));
+  currentDataArr.forEach((obj, index) => generateDayContent(obj, index));
 };
 
 export { displayWeatherContent };
