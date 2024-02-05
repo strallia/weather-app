@@ -31,8 +31,15 @@ body {
   color: var(--contrast-color);
 
   display: grid;
-  grid-template-columns: minmax(min-content, 1100px);
   justify-content: center;
+}
+
+body.full-view {
+  grid-template-columns: minmax(min-content, 1100px);
+}
+
+body.narrow-view {
+  grid-template-columns: minmax(min-content, 600px);
 }
 
 .page-container {
