@@ -1,6 +1,6 @@
 const date = new Date();
 
-const days = [
+const daysArr = [
   'Sunday',
   'Monday',
   'Tuesday',
@@ -10,7 +10,7 @@ const days = [
   'Saturday',
 ];
 
-const months = [
+const monthsArr = [
   'January',
   'February',
   'March',
@@ -25,15 +25,30 @@ const months = [
   'December',
 ];
 
+const forecastDayTitles = document.querySelectorAll('h3.forecast');
+
+const displayForecastDayOfTheWeek = () => {
+  const extendedDaysArr = [...daysArr, ...daysArr];
+  const firstForcastDayIndex = date.getDay() + 1;
+  const dayNames = extendedDaysArr.slice(
+    firstForcastDayIndex,
+    firstForcastDayIndex + 3,
+  );
+  forecastDayTitles.forEach((title, index) => {
+    const titleNode = title;
+    titleNode.textContent = dayNames[index];
+  });
+};
+displayForecastDayOfTheWeek();
+
 const dateSpan = document.querySelector('.date');
 
 const displayTodaysDate = () => {
-  const dayOfTheWeek = days[date.getDay()].toUpperCase();
-  const month = months[date.getMonth()].toUpperCase();
+  const dayOfTheWeek = daysArr[date.getDay()].toUpperCase();
+  const month = monthsArr[date.getMonth()].toUpperCase();
   const dayOfTheMonth = date.getDate();
   const year = date.getFullYear();
 
   dateSpan.textContent = `${dayOfTheWeek}, ${month} ${dayOfTheMonth}, ${year}`;
 };
-
 displayTodaysDate();

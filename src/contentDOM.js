@@ -18,7 +18,6 @@ const generateDayContent = (obj, index) => {
   const precipUnit = unitsType === 'imperial' ? 'in' : 'mm';
   const windUnit = unitsType === 'imperial' ? 'mph' : 'kph';
 
-  dayPara.textContent = obj.date;
   conditionPara.textContent = obj.condition;
   maxTempPara.textContent = `${obj.maxTemp}°${tempUnit}`;
   minTempPara.textContent = `${obj.minTemp}°${tempUnit}`;
