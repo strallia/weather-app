@@ -3,7 +3,7 @@ import { displayWeatherContent } from './contentDOM';
 import { displayCity } from './titleDOM';
 
 const form = document.querySelector('form');
-const input = document.querySelector('input[type=search]');
+const input = document.querySelector('input[type=text]');
 const searchBtn = document.querySelector('button');
 
 searchBtn.addEventListener('click', (event) => {

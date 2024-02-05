@@ -159,11 +159,10 @@ form {
   position: relative;
 
   display: flex;
-  gap: 5px;
   align-items: center;
 }
 
-input[type='search'] {
+input[type='text'] {
   border: none;
   background-color: lightgray;
   padding: 7px 15px;
@@ -173,28 +172,24 @@ input[type='search'] {
   flex: 1;
 }
 
-input[type='search']:focus {
+input[type='text']:focus {
   border: none;
   outline: 2px solid cornflowerblue;
 }
 
 form button {
-  padding: 2px 3px;
-  background-color: blue;
+  padding: 20px;
+  background-color: transparent;
   border: none;
-  width: 30px;
   position: absolute;
-  right: 0;
-}
-
-/* TODO: Fix search icon not showing up */
-form button::before {
-  content: url('./images/search.png');
-  zoom: 3%;
+  right: 35px;
+  zoom: 17%;
+  transition: 300ms;
 }
 
 button:hover {
   cursor: pointer;
+  zoom: 18%;
 }
 
 .date-container {
