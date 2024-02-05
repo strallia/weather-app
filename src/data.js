@@ -63,9 +63,13 @@ const processData = async (data) => {
       unitSpecificData = { maxTemp, minTemp, totalPrecip, maxWind };
     }
 
+    // round temperature
+    unitSpecificData.maxTemp = Math.round(unitSpecificData.maxTemp);
+    unitSpecificData.minTemp = Math.round(unitSpecificData.minTemp);
+
     dataArr.push({ ...sharedData, ...unitSpecificData });
   });
-  console.log(dataArr);
+
   return dataArr;
 };
 
