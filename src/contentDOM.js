@@ -15,7 +15,7 @@ const generateDayContent = (obj, index) => {
 
   const unitsType = getUnits();
   const tempUnit = unitsType === 'imperial' ? 'F' : 'C';
-  const precipUnit = unitsType === 'imperial' ? 'in.' : 'mm';
+  const precipUnit = unitsType === 'imperial' ? 'in' : 'mm';
   const windUnit = unitsType === 'imperial' ? 'mph' : 'kph';
 
   dayPara.textContent = obj.date;
