@@ -4,3 +4,4 @@ import './formDOM';
 import './dateDOM';
 import './toggleThemeDOM';
 import './toggleUnitDOM';
+import './viewModeDOM';
