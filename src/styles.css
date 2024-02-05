@@ -239,14 +239,26 @@ button:hover {
 
 .content-container {
   width: 100%;
-  border-left: 1px solid var(--contrast-color);
-  border-right: 1px solid var(--contrast-color);
-
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   align-items: center;
   justify-content: center;
   gap: 1px;
+}
+
+.content-container.full-view {
+  border-left: 1px solid var(--contrast-color);
+  border-right: 1px solid var(--contrast-color);
+
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.content-container.narrow-view {
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(auto-fit, min-content);
+
+  > .day-frame {
+    padding: 20px;
+  }
 }
 
 .day-frame {
