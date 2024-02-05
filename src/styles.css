@@ -64,7 +64,7 @@ footer *,
   padding-bottom: 10px;
 
   display: grid;
-  grid-template-columns: auto minmax(200px, 30%) auto;
+  grid-template-columns: 140px minmax(200px, 30%) 140px;
   gap: 30px;
   justify-content: space-between;
   align-items: center;
