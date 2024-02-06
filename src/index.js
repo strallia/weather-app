@@ -5,4 +5,3 @@ import './dateDOM';
 import './toggleThemeDOM';
 import './toggleUnitDOM';
 import './viewModeDOM';
-import './images/search.png';
