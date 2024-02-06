@@ -1,6 +1,6 @@
 import { key } from './key';
 
-const forecastURL = `http://api.weatherapi.com/v1/forecast.json?key=${key}&days=4&q=`;
+const forecastURL = `https://api.weatherapi.com/v1/forecast.json?key=${key}&days=4&q=`;
 
 // state variables
 let city = 'davis';
