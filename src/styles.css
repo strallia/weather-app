@@ -362,7 +362,7 @@ footer {
   letter-spacing: 0.2rem;
 
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .credits a {
