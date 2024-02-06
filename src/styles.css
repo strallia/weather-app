@@ -42,6 +42,7 @@ body.narrow-view {
   grid-template-columns: minmax(min-content, 600px);
   .title-container {
     font-size: 50px;
+    padding: 10px 0;
   }
 }
 
@@ -75,6 +76,7 @@ footer *,
 
 .menu-container {
   padding-bottom: 10px;
+  position: relative;
 
   display: grid;
   justify-content: space-between;
@@ -101,6 +103,15 @@ footer *,
   > .unit-toggle {
     grid-row: 2/3;
   }
+}
+
+.menu-container .warning-label {
+  position: absolute;
+  top: 7px;
+  right: 50px;
+  font-size: 0.8rem;
+  color: red;
+  pointer-events: none;
 }
 
 .menu-container,
@@ -357,4 +368,8 @@ footer {
 .credits a {
   font-family: inherit;
   color: inherit;
+}
+
+.hidden {
+  display: none;
 }

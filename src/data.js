@@ -1,4 +1,5 @@
 import { key } from './key';
+import { displayWarningLabel } from './warningDOM';
 
 const forecastURL = `https://api.weatherapi.com/v1/forecast.json?key=${key}&days=4&q=`;
 
@@ -17,16 +18,12 @@ const getUnits = () => units;
 
 // Forecast API calls
 const fetchForecast = async () => {
-  try {
-    const response = await fetch(forecastURL + city, { mode: 'cors' });
-    const data = await response.json();
-    return data;
-  } catch (e) {
-    console.log(e);
-  }
+  const response = await fetch(forecastURL + city, { mode: 'cors' });
+  return response;
 };
 
-const processData = async (data) => {
+const processData = async (response) => {
+  const data = await response.json();
   const forecast = data.forecast.forecastday;
   const dataArr = [];
 
@@ -74,9 +71,14 @@ const processData = async (data) => {
 };
 
 const returnData = async () => {
-  const response = await fetchForecast();
-  const data = processData(response);
-  return data;
+  try {
+    const response = await fetchForecast();
+    if (!response.ok) throw new Error('');
+    const data = processData(response);
+    return data;
+  } catch (e) {
+    displayWarningLabel();
+  }
 };
 
 export { setCity, getCity, getUnits, setUnits, returnData };

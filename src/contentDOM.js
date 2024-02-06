@@ -4,7 +4,6 @@ let currentDataArr;
 
 const generateDayContent = (obj, index) => {
   const frame = document.querySelector(`.day-frame[data-id="${index}"]`);
-  const dayPara = frame.querySelector('.title > h3');
   const conditionPara = frame.querySelector('.title > p');
   const img = frame.querySelector('img');
   const maxTempPara = frame.querySelector('.temp > p:first-child');
@@ -29,8 +28,12 @@ const generateDayContent = (obj, index) => {
 };
 
 const displayWeatherContent = async () => {
-  currentDataArr = await returnData();
-  currentDataArr.forEach((obj, index) => generateDayContent(obj, index));
+  try {
+    currentDataArr = await returnData();
+    currentDataArr.forEach((obj, index) => generateDayContent(obj, index));
+  } catch (e) {
+    console.error(e);
+  }
 };
 
 export { displayWeatherContent };
