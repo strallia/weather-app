@@ -24,7 +24,3 @@ const displaySearchIcon = () => {
   searchBtn.appendChild(img);
 };
 displaySearchIcon();
-
-// TODO: remove these lines after testing
-displayWeatherContent();
-displayCity();

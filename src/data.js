@@ -4,7 +4,7 @@ import { displayWarningLabel } from './warningDOM';
 const forecastURL = `https://api.weatherapi.com/v1/forecast.json?key=${key}&days=4&q=`;
 
 // state variables
-let city = 'davis';
+let city = 'Seattle';
 const setCity = (string) => {
   city = string;
 };
